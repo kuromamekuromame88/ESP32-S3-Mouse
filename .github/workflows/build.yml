@@ -62,20 +62,3 @@ jobs:
           name: firmware.bin
           path: firmware/${{ matrix.board }}/firmware.bin
           archive: false
-      
-      # --- GitHub Releaseを作成＆アップロード ---
-      - name: Create GitHub Release
-        id: create_release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: build-${{ github.run_number }}
-          name: "Firmware Build ${{ github.run_number }}"
-          body: |
-            Automated build for board: **${{ matrix.board }}**
-            Commit: ${{ github.sha }}
-            Build number: ${{ github.run_number }}
-          files: |
-            firmware/${{ matrix.board }}/firmware.bin
-            firmware/${{ matrix.board }}/info.txt
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_PAT }}

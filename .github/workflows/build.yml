@@ -57,10 +57,11 @@ jobs:
       #    git push https://x-access-token:${{ secrets.MY_PAT }}@github.com/${{ github.repository }} firmware-builds --force
 
       - name: artifactへのアップロード
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: firmware.bin
           path: firmware/${{ matrix.board }}/firmware.bin
+          archive: false
       
       # --- GitHub Releaseを作成＆アップロード ---
       - name: Create GitHub Release

@@ -1,1 +1,1 @@
-This is useful ESP32 S3 GamePad
+ESP-32 S3によるNintendo SwitchのProController
